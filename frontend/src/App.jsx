@@ -12,6 +12,7 @@ import RecoverPass from './pages/RecoverPass';
 import NewPassword from './pages/NewPassword';
 import Checkout from './pages/Checkout';
 import CartContextProvider from './context/cartContext';
+import 'vite/modulepreload-polyfill'
 
 function App() {
   return (
