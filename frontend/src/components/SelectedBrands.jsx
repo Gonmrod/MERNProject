@@ -1,4 +1,4 @@
-import selectedProducts from "../helpers/selectedProducts";
+import selectedProducts from "../helpers/selectedProducts.js";
 import SelectedCard from "./SelectedCard";
 
 const SelectedBrands = () => {

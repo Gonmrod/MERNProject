@@ -2,7 +2,7 @@ import { NavLink, Link } from 'react-router-dom'
 import logo from '../public/images/Logo.jpg';
 import { useContext } from 'react';
 import SignoutButton from './SignoutButton';
-import LoginButton from './loginButton';
+import LoginButton from './LoginButton';
 import { AuthContext } from '../context/authContext';
 import { FiShoppingCart } from "react-icons/fi";
 import { CartContext } from '../context/cartContext';

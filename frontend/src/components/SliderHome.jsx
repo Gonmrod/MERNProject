@@ -1,5 +1,5 @@
 
-import imgArray from '../helpers/sliderHome'
+import imgArray from '../helpers/sliderHome.js'
 import { useState } from 'react'
 import Glider from 'react-glider'
 import 'glider-js/glider.min.css'
