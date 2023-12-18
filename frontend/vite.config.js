@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
-      input: 'frontend/src/main.jsx'
+      input: '/frontend/src/main.jsx'
   },
 },
   plugins: [react()]
