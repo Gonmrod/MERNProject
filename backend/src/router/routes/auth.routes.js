@@ -268,7 +268,7 @@ authGithub.get(
         return res
             .status(200)
             .cookie('token', token)
-            .redirect("http://localhost:5173/products");
+            .redirect(`${process.env.BASE_URL}/products`);
     } catch (error) {
         next(error);
     }
