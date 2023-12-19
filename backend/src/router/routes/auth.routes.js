@@ -13,6 +13,7 @@ import is_valid_resetpass_token from "../../middlewares/is_valid_resetpass_token
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import env from "../../config/env.js";
+import { handlePublicRoute } from "./products.routes.js";
 
 const controller = new AuthController();
 
@@ -255,7 +256,7 @@ authGithub.get(
 authGithub.get(
     "/github/callback",
     passport.authenticate("github", {}),
-    (req, res, next) => {
+    async (req, res, next) => { //async callback
     try {
         req.session.mail = req.user.mail;
         req.session.role = req.user.role;
@@ -265,10 +266,11 @@ authGithub.get(
             {expiresIn: 60 * 60 * 24 * 7}
         );
         req.session.token = token
+        await handlePublicRoute(req, next); //
         return res
             .status(200)
             .cookie('token', token)
-            .redirect(`${process.env.BASE_URL_PREFIX}`);
+            //.redirect(`${process.env.BASE_URL_PREFIX}`);
     } catch (error) {
         next(error);
     }
