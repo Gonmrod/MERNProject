@@ -256,7 +256,7 @@ authGithub.get(
 authGithub.get(
     "/github/callback",
     passport.authenticate("github", {}),
-    async (req, res, next) => { //async callback
+    (req, res, next) => {
     try {
         req.session.mail = req.user.mail;
         req.session.role = req.user.role;
@@ -266,11 +266,10 @@ authGithub.get(
             {expiresIn: 60 * 60 * 24 * 7}
         );
         req.session.token = token
-        await handlePublicRoute(req, next); //
         return res
             .status(200)
             .cookie('token', token)
-            //.redirect(`${process.env.BASE_URL_PREFIX}`);
+            .redirect(`${process.env.BASE_URL_PREFIX}`);
     } catch (error) {
         next(error);
     }

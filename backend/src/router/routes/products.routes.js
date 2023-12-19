@@ -187,29 +187,4 @@ export default class ProductRouter extends MyRouter {
       );
       
     };
-}
-//
-export async function handlePublicRoute(req, res, next) {
-  const { title, page } = req.query;
-  try {
-    let products;
-    if (title) {
-      const lookfor = new RegExp(title, "i");
-      products = await productsController.read(
-        { title: lookfor },
-        { lean: true, limit: 4, page: page ? page : 1 }
-      );
-    } else {
-      products = await productsController.read(
-        {},
-        { lean: true, limit: 4, page: page ? page : 1 }
-      );
-    }
-    return res.status(200).json({
-      success: true,
-      payload: products.response,
-    });
-  } catch (error) {
-    next(error);
-  }
-}
+};
