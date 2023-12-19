@@ -13,7 +13,6 @@ import is_valid_resetpass_token from "../../middlewares/is_valid_resetpass_token
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import env from "../../config/env.js";
-import { handlePublicRoute } from "./products.routes.js";
 
 const controller = new AuthController();
 
