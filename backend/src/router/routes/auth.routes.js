@@ -268,7 +268,7 @@ authGithub.get(
         return res
             .status(200)
             .cookie('token', token)
-            .redirect(`${process.env.BASE_URL_PREFIX}/products`);
+            .redirect(`${process.env.BASE_URL_PREFIX}`);
     } catch (error) {
         next(error);
     }
