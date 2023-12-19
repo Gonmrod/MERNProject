@@ -268,7 +268,7 @@ authGithub.get(
         return res
             .status(200)
             .cookie('token', token)
-            .redirect(`${process.env.BASE_URL_PREFIX}/products`);
+            .redirect('https://deploytest-n6dd.onrender.com/products');
     } catch (error) {
         next(error);
     }
