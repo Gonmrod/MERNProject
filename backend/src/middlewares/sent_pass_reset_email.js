@@ -18,7 +18,7 @@ export default async function (req, res, next) {
         expiresIn.setHours(expiresIn.getHours() + 1);
         await authRepository.saveResetToken(user_id, token, expiresIn);
 
-        const resetUrl = `https://deploytest-n6dd.onrender.com/recover_pass/${token}`;
+        const resetUrl = `${process.env.BASE_URL}/recover_pass/${token}`;
         const subject = "Password recovery";
         const html = `
         <h1>Password recovery</h1>

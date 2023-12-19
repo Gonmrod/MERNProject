@@ -268,7 +268,7 @@ authGithub.get(
         return res
             .status(200)
             .cookie('token', token)
-            .redirect('https://deploytest-n6dd.onrender.com/products');
+            .redirect(`${process.env.BASE_URL_PREFIX}/products`);
     } catch (error) {
         next(error);
     }
@@ -279,7 +279,7 @@ authGithub.get(
     '/github/token',
     async (req, res, next) => {
         try {
-            const user = await JSON.parse(req.cookies.git_token);
+            const user = await JSON.parse(req.cookies.token);
             
             if(user){
                 return res.sendSuccess(user);
