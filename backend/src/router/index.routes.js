@@ -20,7 +20,9 @@ export default class IndexRouter extends MyRouter {
         this.read('/', (req, res) => res.status(200).send('products store api'));
         this.use('/auth', auth.getRouter());
         this.use("/auth", authGithub);
+        this.read("/products", (req, res) => res.status(200).send); //
         this.use('/products', product.getRouter());
+        this.read("/products", authGithub); //
         this.use('/carts', cart.getRouter());
         this.use('/tickets', order.getRouter());
         this.use('/loggers', logger.getRouter());
