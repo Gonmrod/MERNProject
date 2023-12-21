@@ -59,7 +59,7 @@ export default function () {
                   last_name = nameParts.slice(1).join(' '); 
                 } else {
                   first_name = name;
-                  last_name = '';
+                  last_name = ' ';
                 }
       
                 let newUser = await User.create({
